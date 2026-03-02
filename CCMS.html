@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CCMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>College Complaint Management System</h1>
+</header>
+<form action="ComplaintServlet.java" method="POST">
+<!-- LOGIN -->
+<div class="container" id="loginSection">
+    <h2>Student Login</h2>
+    <input type="text" name="studentId" id="studentId" placeholder="Student ID" required>
+    <input type="email" id="email" placeholder="Email">
+    <button type="button" onclick="login()">Login</button>
+</div>
+
+<!-- MAIN MENU -->
+<div class="container hidden" id="menuSection">
+    <h2>Select Department</h2>
+    <button type="button" onclick="showSection('library')">Library</button>
+    <button type="button" onclick="showSection('college')">College</button>
+    <button type="button" onclick="showSection('hostel')">Hostel</button>
+    <button type="button" onclick="showSection('hospital')">Hospital</button>
+</div>
+
+<!-- LIBRARY -->
+<div class="container hidden" id="library">
+    <h2>Library</h2>
+<input type="hidden" name="dept" value="Library">
+<input type="hidden" name="issue" value="Book Suggestion">
+    <h3>Search Book</h3>
+    <input type="text" id="bookSearch" placeholder="Enter book name">
+    <button type="button" onclick="searchBook()">Search</button>
+    <p id="bookResult"></p>
+
+    <h3>Suggest a New Book</h3>
+    <textarea name="description" id="bookSuggestion" placeholder="Suggest book name"></textarea>
+    <button type="submit" onclick="submitSuggestion()">Submit Suggestion</button>
+
+    <button type="button" onclick="goBack()">Back</button>
+</div>
+
+<!-- HOSTEL -->
+<div class="container hidden" id="hostel">
+    <h2>Hostel Complaints</h2>
+<input type="hidden" name="dept" value="Hostel">
+
+    <select name="issue" id="hostelIssue">
+        <option value="Fan">Fan</option>
+        <option value="Light">Light</option>
+        <option value="Door">Door</option>
+        <option Value="Washroom Facility">Washroom Facility</option>
+        <option value="Drinking Water">Drinking Water</option>
+        <option value="Electricity">Electricity</option>
+    </select>
+
+    <textarea name="description" id="hostelDesc" placeholder="Describe issue"></textarea>
+    <button type="submit" onclick="submitHostelComplaint()">Submit</button>
+
+    <button type="button" onclick="goBack()">Back</button>
+</div>
+
+<!-- HOSPITAL -->
+<div class="container hidden" id="hospital">
+    <h2>Hospital Services</h2>
+
+    <h3>Emergency Numbers</h3>
+    <p>Ambulance: 108</p>
+    <p>College Hospital: 9876543210</p>
+
+    <h3>OP Timings</h3>
+    <p>9:00 AM - 5:00 PM</p>
+
+    <h3>Tablet Suggestions (Basic)</h3>
+    <p>Fever: Paracetamol</p>
+    <p>Cold: Cetirizine</p>
+
+    <button type="button" onclick="goBack()">Back</button>
+</div>
+
+<!-- COLLEGE -->
+<div class="container hidden" id="college">
+    <h2>College Complaints</h2>
+
+    <select id="collegeIssue">
+        <option>Chairs</option>
+        <option>Fans</option>
+        <option>Board</option>
+        <option>Projector</option>
+        <option>Laptops</option>
+        <option>Ports</option>
+    </select>
+
+    <textarea id="collegeDesc" placeholder="Describe issue"></textarea>
+    <button onclick="submitCollegeComplaint()">Submit</button>
+
+    <button onclick="goBack()">Back</button>
+</div>
+</form>
+
+<script src="script.js"></script>
+</body>
+</html>
